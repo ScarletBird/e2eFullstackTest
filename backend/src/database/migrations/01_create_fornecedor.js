@@ -3,8 +3,8 @@ exports.up = function(knex){
     return knex.schema.createTable('fornecedor', table =>{
         table.increments('id').primary();
         table.string('Nome').notNullable();
-        table.string('e-mail').notNullable().unique();
-        table.string('CPF/CNPJ').notNullable().unique();
+        table.string('email').notNullable().unique();
+        table.string('CPF_CNPJ').notNullable().unique();
     })
 }
 

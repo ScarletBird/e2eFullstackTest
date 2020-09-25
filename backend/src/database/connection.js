@@ -1,4 +1,4 @@
-import knex from 'knex';
+const knex = require('knex');
 
 const connection = knex({
     client: 'mysql',
@@ -10,4 +10,4 @@ const connection = knex({
     }
 });
 
-export default connection;
+module.exports = connection;
