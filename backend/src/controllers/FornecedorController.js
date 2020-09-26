@@ -23,6 +23,13 @@ module.exports = {
         return res.json(fornecedor);
     },
 
+    async readOne(req, res) {
+        const {id} = req.params;
+        const fornecedor = await connection('fornecedor').select().where('id', id);
+
+        return res.json(fornecedor);
+    },
+
     async update(req, res) {
         // Na atualização, busca-se o id do fornecedor e recoloca todos os dados a serem atualizados
         const {id} = req.params;

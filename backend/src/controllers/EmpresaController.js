@@ -18,9 +18,17 @@ module.exports = {
 
     async read(req, res) {
         // Na leitura é feita a busca dos dados no BD
-        const empresas = await connection('empresa').select('*');
+        const empresas = await connection('empresa').select();
         
         return res.json(empresas);
+
+    },
+
+    async readOne(req, res) {
+        const {id} = req.params;
+        const empresa = await connection('empresa').select().where('id', id);
+
+        return res.json(empresa);
     },
 
     async update(req, res) {

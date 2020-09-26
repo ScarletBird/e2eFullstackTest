@@ -13,11 +13,13 @@ routes.get('/', (req, res) => {
 })
 
 routes.get('/empresa', EmpresaController.read);
+routes.get('/empresa/:id', EmpresaController.readOne);
 routes.post('/empresa', EmpresaController.create);
 routes.put('/empresa/:id', EmpresaController.update);
 routes.delete('/empresa/:id', EmpresaController.delete);
 
 routes.get('/fornecedor', FornecedorController.read);
+routes.get('/fornecedor/:id', FornecedorController.readOne);
 routes.post('/fornecedor', FornecedorController.create);
 routes.put('/fornecedor/:id', FornecedorController.update);
 routes.delete('/fornecedor/:id', FornecedorController.delete);

@@ -1,0 +1,21 @@
+div.hold-div {
+    width: 100%;
+    padding: 8px;
+    margin: 15px 0;
+    text-align: left;
+
+    border: 1px solid;
+    border-radius: 4px;
+
+    background-color: #b4b4b441;
+}
+
+div.hold-div span {
+    float: right;
+    font-family: Roboto;
+    font-weight: normal;
+}
+
+div.hold-div:hover {
+    background-color: #b4b4b493;
+}
