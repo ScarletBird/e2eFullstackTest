@@ -18,15 +18,21 @@ module.exports = {
 
     async read(req, res) {
         // Na leitura é feita a busca dos dados no BD
-        const fornecedor = await connection('fornecedor').select('*');
+        const fornecedor = await connection('fornecedor')
+        .leftJoin('fornecedor_fisico', 'fornecedor.id', 'fornecedor_fisico.fornecedor_id')
+        .select('fornecedor.id', 'fornecedor.Nome', 'fornecedor.email', 'fornecedor.CPF_CNPJ', 'fornecedor_fisico.RG', 'fornecedor_fisico.Data_de_Nascimento');
         
         return res.json(fornecedor);
     },
 
     async readOne(req, res) {
         const {id} = req.params;
-        const fornecedor = await connection('fornecedor').select().where('id', id);
-
+        const fornecedor = await connection('fornecedor').where('fornecedor.id', id)
+        .leftJoin('empresa_fornecedor', 'fornecedor.id', 'empresa_fornecedor.fornecedor_id')
+        .leftJoin('empresa', 'empresa_fornecedor.empresa_id', 'empresa.id')
+        .leftJoin('fornecedor_fisico', 'fornecedor.id','fornecedor_fisico.fornecedor_id')
+        .select('fornecedor.id', 'fornecedor.Nome', 'fornecedor.email', 'fornecedor.CPF_CNPJ', 'fornecedor_fisico.RG', 'fornecedor_fisico.Data_de_Nascimento', 'empresa_fornecedor.empresa_id', 'empresa.UF', 'empresa.Nome_Fantasia', 'empresa.CNPJ');
+        
         return res.json(fornecedor);
     },
 

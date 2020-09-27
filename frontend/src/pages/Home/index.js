@@ -1,4 +1,5 @@
 import React from 'react';
+import Popup from 'reactjs-popup';
 
 import './styles.css';
 import EmpresaReadAll from '../../subpages/EmpresaReadAll';
@@ -19,7 +20,11 @@ const Home = () => {
                 <main>
                     <h2> Fornecedores </h2>
                     <FornecedorReadAll/>
+                    <Popup trigger={
                     <button> Criar novo fornecedor </button>
+                    } position="center">
+                        <div>Batata</div>
+                    </Popup>
                 </main>
             </div>
         </div>

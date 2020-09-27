@@ -1,0 +1,48 @@
+#mother_box-vinculo {
+    border: 1px solid;
+    border-radius: 8px;
+    background-color: #ffffff;
+    width: 35vh;
+    padding: 12px;
+    text-align: center;
+}
+
+ul {
+    border: 1px solid;
+    border-radius: 8px;
+    width: 30vh;
+    padding: 12px;
+    background: #727272;
+    text-align: center;
+}
+
+li {
+    background: #f5f5f5;
+    border: 2px solid #f5f5f5;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  
+    text-align: center;
+  
+    cursor: pointer;
+}
+
+li:hover {
+    background: #c9ffb4;
+    cursor: pointer;
+}
+
+li.active {
+    background: #c9ffb4;
+}
+
+li.active:hover {
+    background: #ffb4b4;
+    cursor: pointer;
+}

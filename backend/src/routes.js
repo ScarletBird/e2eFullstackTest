@@ -30,6 +30,8 @@ routes.put('/fornecedor_fis/:id', FornecedorFisicoController.update);
 routes.delete('/fornecedor_fis/:id', FornecedorFisicoController.delete);
 
 routes.get('/emp_for', EmpresaFornecedorController.read);
+routes.get('/emp_for/emp/:id', EmpresaFornecedorController.readEmp);
+routes.get('/emp_for/for/:id', EmpresaFornecedorController.readFor);
 routes.post('/emp_for', EmpresaFornecedorController.create);
 routes.put('/emp_for/:id', EmpresaFornecedorController.update);
 routes.delete('/emp_for/:id', EmpresaFornecedorController.delete);

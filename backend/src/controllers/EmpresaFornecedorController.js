@@ -22,6 +22,26 @@ module.exports = {
         return res.json(empresa_fornecedor);
     },
 
+    async readEmp(req, res) {
+        const {id} = req.params;
+
+        const fornecedoresDaEmpresa = await connection('empresa_fornecedor')
+        .where('empresa_id', id)
+        .select('fornecedor_id');
+
+        return res.json(fornecedoresDaEmpresa);
+    },
+
+    async readFor(req, res) {
+        const {id} = req.params;
+
+        const EmpresasDoFornecedor = await connection('empresa_fornecedor')
+        .where('fornecedor_id', id)
+        .select('empresa_id');
+
+        return res.json(EmpresasDoFornecedor);
+    },
+
     async update(req, res) {
         // Na atualização, busca-se o id do empresa_fornecedor e recoloca todos os dados a serem atualizados
         const {id} = req.params;

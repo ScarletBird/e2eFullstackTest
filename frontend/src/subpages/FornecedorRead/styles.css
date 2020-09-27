@@ -1,0 +1,39 @@
+#mother_box {
+    border: 1px solid;
+    border-radius: 8px;
+    background-color: #ffffff;
+    width: 80vh;
+    padding: 12px;
+}
+
+#main_info {
+    padding: 5px;
+}
+
+#main_info span {
+    float: right;
+    font-family: Roboto;
+    font-weight: normal;
+}
+
+.button_box {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    padding: 8px;
+    margin: 4px;
+}
+
+.link_span{
+    padding: 8px;
+    margin: 0 10px;
+    border: 1px solid;
+    border-radius: 8px;
+    background-color: #c7c7c744;
+}
+
+.link_span:hover{
+    background-color: #c7c7c796;
+    cursor: pointer;
+}
+

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Popup from 'reactjs-popup';
+
 import './styles.css';
 
 import api from '../../services/api';
+import EmpresaRead from '../EmpresaRead';
 
 const EmpresaReadAll = () => {
     const [empresas, setEmpresas] = useState([]);
@@ -15,14 +18,19 @@ const EmpresaReadAll = () => {
     return (
         <div>
             {empresas.map(empresa => (
-                <div className="hold-div" key={empresa.id}>
+                <Popup trigger={
+                    <div className="hold-div" key={empresa.id}>
                     <h4>ID: {empresa.id}
                     <span>UF: {empresa.UF}</span>
                     </h4>
                     
-                    <p>Nome_Fantasia: {empresa.Nome_Fantasia}</p>
+                    <p>Nome Fantasia: {empresa.Nome_Fantasia}</p>
                     <p>CNPJ: {empresa.CNPJ}</p>
                 </div>
+                } position="center">
+                    <EmpresaRead id={empresa} />
+                </Popup>
+                
             ))}
         </div>
     );

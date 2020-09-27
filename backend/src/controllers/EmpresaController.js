@@ -26,7 +26,11 @@ module.exports = {
 
     async readOne(req, res) {
         const {id} = req.params;
-        const empresa = await connection('empresa').select().where('id', id);
+        const empresa = await connection('empresa').where('empresa.id', id)
+        .leftJoin('empresa_fornecedor', 'empresa.id', 'empresa_fornecedor.empresa_id')
+        .leftJoin('fornecedor', 'empresa_fornecedor.fornecedor_id', 'fornecedor.id')
+        .leftJoin('fornecedor_fisico', 'fornecedor.id','fornecedor_fisico.fornecedor_id')
+        .select('empresa.id','empresa.UF', 'empresa.Nome_Fantasia', 'empresa.CNPJ', 'empresa_fornecedor.fornecedor_id', 'fornecedor.Nome', 'fornecedor.email', 'fornecedor.CPF_CNPJ', 'fornecedor_fisico.RG', 'fornecedor_fisico.Data_de_Nascimento');
 
         return res.json(empresa);
     },
